@@ -1,0 +1,61 @@
+/cvmfs/soft.computecanada.ca/easybuild/software/2020/avx2/Compiler/intel2020/netcdf/4.7.4
+/cvmfs/soft.computecanada.ca/easybuild/software/2020/avx2/MPI/intel2020/openmpi4/netcdf-fortran-mpi/4.5.2
+/cvmfs/soft.computecanada.ca/easybuild/software/2020/avx2/MPI/intel2020/openmpi4/pnetcdf/1.9.0
+/home/shg096/mizuRoute/route
+
+
+
+module load intel
+module load openmpi
+module load netcdf-mpi
+module load pnetcdf
+module load pio
+
+
+Because you’re attempting a highly sensitive action, we need to be sure it’s really you. At the moment, we can’t. Try again from a device you normally use (like your phone or laptop) or from the location you usually sign in from.
+
+
+module load nixpkgs/16.09 gcccore/.7.3.0 ifort/.2018.3.222 openmpi/3.1.4 netcdf-fortran/4.4.4 netcdf/4.7.3 mii/1.1.1 icc/.2018.3.222 intel/2018.3 pnetcdf/1.9.0 hdf5/1.10.3
+
+cp /home/mizukami/mizuRoute_test/route/build/lib/Makefile lib/Makefile
+cp /home/mizukami/mizuRoute_test/route/build/Makefile Makefile
+
+
+cd mizuRoute
+git checkout feature/mpi-pio.HYPE1
+./manage_externals/checkout_externals
+cd route/build/
+cp /home/mizukami/mizuRoute_test/route/build/lib/Makefile lib/Makefile
+cp /home/mizukami/mizuRoute_test/route/build/Makefile Makefile
+
+
+
+Discuss on the structure of the paper
+Plan for a demo exercise with few (hydrology) folks (have a concrete timeline?)
+Plan for code review to ensure what is being visualized is correct.
+
+
+git rm route/build/lib/piolib/include/pio.h
+git rm route/build/lib/piolib/include/uthash.h
+git rm route/build/lib/piolib/install_manifest.txt
+git rm route/build/lib/piolib/lib/libpio.settings
+git rm route/build/lib/piolib/libpio.settings
+
+
+H31H: Machine Learning Applications in Catchment Hydrology
+
+
+
+Understanding the Information Content in the Hierarchy of Model Development Decisions: Learning From Data: Shervan Gharari, Hoshin V. Gupta, Martyn P. Clark, Markus Hrachowitz, Fabrizio Fenicia, Patrick Matgen, Hubert H. G. Savenije, https://doi.org/10.1029/2020WR027948, WRR, 2021.
+
+
+Bulygina, N., & Gupta, H. (2009). Estimating the uncertain mathematical structure of a water balance model via Bayesian data assimilation. Water Resources Research, 45, W00B13. https://doi.org/10.1029/2007WR006749
+
+Bulygina, N., & Gupta, H. (2010). How Bayesian data assimilation can be used to estimate the mathematical structure of a model. Stochastic Environmental Research and Risk Assessment, 24(6), 925– 937. https://doi.org/10.1007/s00477-010-0387-y
+
+Bulygina, N., & Gupta, H. (2011). Correcting the mathematical structure of a hydrological model via Bayesian data assimilation. Water Resources Research, 47(5), W05514. https://doi.org/10.1029/2010WR009614
+
+Gharari, S., Hrachowitz, M., Fenicia, F., Gao, H., & Savenije, H. H. G. (2014a). Using expert knowledge to increase realism in environmental system models can dramatically reduce the need for calibration. Hydrology and Earth System Sciences, 18(12), 4839– 4859. https://doi.org/10.5194/hess-18-4839-2014
+
+Gharari, S., Shafiei, M., Hrachowitz, M., Kumar, R., Fenicia, F., Gupta, H. V., & Savenije, H. H. G. (2014b). A constraint-based search algorithm for parameter identification of environmental models. Hydrology and Earth System Sciences, 18(12), 4861– 4870.
+

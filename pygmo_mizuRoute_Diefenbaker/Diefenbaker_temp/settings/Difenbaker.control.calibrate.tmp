@@ -1,0 +1,74 @@
+! ****************************************************************************************************************************
+! ***** DEFINITION OF MODEL CONTROL INFORMATION ******************************************************************************
+! ****************************************************************************************************************************
+! ****************************************************************************************************************************
+! Note: lines starting with "!" are treated as comment lines -- there is no limit on the number of comment lines.
+!    lines starting with <xxx> are read till "!"
+!
+! ****************************************************************************************************************************
+! RUN CONTROL
+! --------------------------
+<case_name>                CASENAME                                     ! simulation name - used for output netcdf name
+<sim_start>                2013-06-01                                   ! time of simulation start (year-month-day)
+<sim_end>                  2013-07-31                                   ! time of simulation end (year-month-day)
+<route_opt>                1                                            ! option for routing schemes 0-> both, 1->IRF, 2->KWT otherwise error
+<is_lake_sim>              T                                            ! identifies the lake simulation is ON
+<is_flux_wm>               T                                            ! logical; provided fluxes to or from seg/lakes should be considered
+<is_vol_wm>                T                                            ! target volume is activated
+<is_vol_wm_jumpstart>      T                                            ! just start for lakes with target volume is activated
+! ****************************************************************************************************************************
+! DEFINE DIRECTORIES
+! --------------------------
+<ancil_dir>                ./ancillary_data/                            ! directory containing ancillary data (river segment data,
+<input_dir>                ./input/                                     ! directory containing input data
+<output_dir>               ./output/                                    ! directory containing output data
+! ****************************************************************************************************************************
+! DEFINE RUNOFF FILE
+! ----------------------------------
+<fname_qsim>               netcdf_name.txt                              ! name of netCDF containing the HRU runoff
+<vname_qsim>               Precipitation                                ! name of HRU runoff variable which is always zero
+<suppress_P_Ep>            T                                            ! evaporation and precipitation is considered zero
+<vname_hruid>              ID                                           ! name of the HRU id
+<dname_hruid>              ID                                           ! name of HRU dimension
+<vname_time>               time                                         ! name of time variable in the runoff file
+<dname_time>               time                                         ! name of time dimension
+<units_qsim>               mm/day                                       ! units of runoff
+<dt_qsim>                  86400                                        ! time interval of the runoff
+<fname_wm>                 WM.txt                                       ! name of text file containing ordered nc file names
+<vname_flux_wm>            abs_inj                                      ! name of varibale for fluxes to and from seg (reachs/lakes)
+<vname_vol_wm>             target_vol                                   ! name of varibale for target volume for managed lakes
+<vname_time_wm>            time                                         ! name of time variable
+<vname_segid_wm>           ID                                           ! name of the segid varibale in nc files
+<dname_time_wm>            time                                         ! name of time dimension
+<dname_segid_wm>           ID                                           !
+! ****************************************************************************************************************************
+! Spatially constant parameter Namelist name
+! ---------------------------
+<param_nml>                param.nml.default                            ! namelist parameters
+! ****************************************************************************************************************************
+! DEFINE FINE NAME AND DIMENSIONS
+! ---------------------------------------
+<fname_ntopOld>            with_lake.nc                                 ! name of netCDF containing river segment data
+<dname_sseg>               index                                        ! dimension name of the stream segments
+<dname_nhru>               index                                        ! dimension name of the HRUs
+! ****************************************************************************************************************************
+! DEFINE DESIRED VARIABLES FOR THE NETWORK TOPOLOGY
+! ---------------------------------------------------------
+<seg_outlet>               -9999                                        ! seg_id of outlet streamflow segment -9999 for all segments
+! ****************************************************************************************************************************
+! Dictionary to map variable names
+! ---------------------------
+<varname_area>             area                                         ! name of variable holding hru area
+<varname_length>           length                                       ! name of variable holding segment length
+<varname_slope>            slope                                        ! name of variable holding segment slope
+<varname_HRUid>            ID                                           ! name of variable holding HRU id
+<varname_hruSegId>         ID                                           ! name of variable holding the stream segment below each HRU
+<varname_segId>            ID                                           ! name of variable holding the ID of each stream segment
+<varname_downSegId>        ID_next                                      ! name of variable holding the ID of the next downstream segment
+!<varname_pfafCode>        PFAF                                         ! name of variable holding the pfafstetter code
+<varname_islake>           islake                                       ! name of variable holding the islake flage (1=lake, 0=reach)
+<varname_lakeModelType>    lake_type                                    ! name of variable holding the lake model type
+<varname_LakeTargVol>      target_vol                                   ! name of varibale to identify the target volume flag
+! ****************************************************************************************************************************
+! ****************************************************************************************************************************
+! ****************************************************************************************************************************
