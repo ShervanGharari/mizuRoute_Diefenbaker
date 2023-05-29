@@ -171,8 +171,11 @@ def run_mizuRoute (velocity, diffusivity, pid_path):
         observation  = np.array(observation ['Flow'])
 
         # objective function
-        obj = 1 - NSE(simulated [22:32], observation [22:32])
+        obj = 1 - NSE(simulated [15:30], observation [15:30])
         obj = obj
+
+        # objective
+        obj = obj + abs(velocity-2.4)
 
         # conditions
         # peak discharge should happen on 27 of June in saskatoon

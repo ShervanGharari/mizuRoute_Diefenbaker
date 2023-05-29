@@ -89,7 +89,7 @@ if __name__ == "__main__": # https://github.com/esa/pagmo2/issues/199
     pg.mp_island.init_pool(nworkers)
 
     # Problem definition
-    prob = pg.problem(UDP('mizuRoute',[2.39,9999],[2.41,10001],['velocity','diffusivity']))
+    prob = pg.problem(UDP('mizuRoute',[0.1,100],[10.0,100000],['velocity','diffusivity']))
 
     # algorithm
     # algo = pg.algorithm(pg.sga())
@@ -98,10 +98,11 @@ if __name__ == "__main__": # https://github.com/esa/pagmo2/issues/199
     algo = pg.algorithm(pg.pso())
     # algo = pg.algorithm(pg.pso_gen())
 
-    archi = pg.archipelago(n= nworkers, algo = algo, prob = prob, pop_size = 10, udi=pg.mp_island())
+    # set up archiopelago
+    archi = pg.archipelago(n= nworkers, algo = algo, prob = prob, pop_size = 20, udi=pg.mp_island())
 
     # evolve the archis
-    archi.evolve(5)
+    archi.evolve(20)
     archi.wait()
     print(archi)
     print(archi.get_champions_f())

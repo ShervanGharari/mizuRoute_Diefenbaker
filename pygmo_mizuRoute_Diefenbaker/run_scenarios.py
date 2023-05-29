@@ -54,7 +54,7 @@ os.chdir(path_setup)
 
 #
 velocity = 2.4
-diffusivity = 10000
+diffusivity = 13000
 
 # replace the parameters and run mizuRoute
 V = "%.2f" % velocity

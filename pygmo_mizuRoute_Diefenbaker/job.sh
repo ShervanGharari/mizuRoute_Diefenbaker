@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --account=rpp-kshook
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=4
 #SBATCH --mem-per-cpu=8G
-#SBATCH --time=0:10:00           # time (DD-HH:MM)
+#SBATCH --time=10:00:00           # time (DD-HH:MM)
 #SBATCH --job-name=pygmo_test_parallel
 #SBATCH --error=errors1
 
